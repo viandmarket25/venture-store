@@ -1,0 +1,3 @@
+name,slug,description,assets,facets,optionGroups,optionValues,sku,price,taxCategory,stockOnHand,trackInventory,variantAssets,variantFacets
+Product 1,product-1,"Description of Product 1",https://burst.shopifycdn.com/photos/young-man-in-bright-fashion_925x.jpg,category:electronics|brand:Apple,screen size|RAM,13 inch|8GB,P123456,59.99,standard,50,true,,
+Product 2,product-2,"Description of Product 2",https://burst.shopifycdn.com/photos/casual-fashion-woman_925x.jpg,category:electronics|brand:Apple,screen size|RAM,15 inch|8GB,P234567,79.99,standard,75,true,,
