@@ -12,7 +12,12 @@
     "start": "concurrently yarn:start:*",
     "migration:generate": "ts-node migration generate",
     "migration:run": "ts-node migration run",
-    "migration:revert": "ts-node migration revert"
+    "migration:revert": "ts-node migration revert",
+    "import": "yarn ts-node ./src/populate-server.ts",
+    "backup": "echo \"backing up db...\" && /Applications/XAMPP/xamppfiles/bin/mysqldump -u root -p vendure > ./sql-backup/vendure.sql && exit 1",
+    "restore": "echo \"restoring db...\" && /Applications/XAMPP/xamppfiles/bin/mysql – u root -p vendure < ./sql-backup/vendure.sql  && exit 1",
+    "commit": "echo \"Commit changes\"  && echo \"Adding files...\" && git add . && echo \"Commiting files...\" && git commit -m 'new commit' && echo \"Push changes...\" && git push origin dev --force && exit 1 "
+
   },
   "dependencies": {
     "@vendure/admin-ui-plugin": "2.0.4",
