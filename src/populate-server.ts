@@ -6,7 +6,7 @@ import path from 'path';
 import { config } from './vendure-config';
 import { initialData } from './initial-data';
 
-const productsCsvFile = path.join(__dirname, 'apparel.csv');
+const productsCsvFile = path.join(__dirname, 'product.csv');
 
 populate(() => bootstrap(config), initialData, productsCsvFile)
   .then((app) => {

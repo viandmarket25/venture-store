@@ -1,0 +1,367 @@
+
+addItemToOrder
+
+mutation AddItemToOrder($productVariantId: ID!, $quantity: Int!) {
+  addItemToOrder(productVariantId: $productVariantId, quantity: $quantity) {
+    ... on UpdateOrderItemsResult {
+      success
+      message
+      order {
+        # Include the fields you need from the Order object
+      }
+    }
+  }
+}
+
+addPaymentToOrder
+
+mutation AddPaymentToOrder($input: PaymentInput!) {
+  addPaymentToOrder(input: $input) {
+    ... on AddPaymentToOrderResult {
+      success
+      message
+      order {
+        # Include the fields you need from the Order object
+      }
+    }
+  }
+}
+
+
+adjustOrderLine
+
+mutation AdjustOrderLine($orderLineId: ID!, $quantity: Int!) {
+  adjustOrderLine(orderLineId: $orderLineId, quantity: $quantity) {
+    ... on UpdateOrderItemsResult {
+      success
+      message
+      order {
+        # Include the fields you need from the Order object
+      }
+    }
+  }
+}
+
+
+applyCouponCode
+
+mutation ApplyCouponCode($couponCode: String!) {
+  applyCouponCode(couponCode: $couponCode) {
+    ... on ApplyCouponCodeResult {
+      success
+      message
+      order {
+        # Include the fields you need from the Order object
+      }
+    }
+  }
+}
+
+
+authenticate
+
+mutation Authenticate($input: AuthenticationInput!, $rememberMe: Boolean) {
+  authenticate(input: $input, rememberMe: $rememberMe) {
+    ... on AuthenticationResult {
+      success
+      message
+      authenticationToken
+      user {
+        # Include the fields you need from the User object
+      }
+    }
+  }
+}
+
+createCustomerAddress
+
+mutation CreateCustomerAddress($input: CreateAddressInput!) {
+  createCustomerAddress(input: $input) {
+    ... on Address {
+      # Include the fields you need from the Address object
+    }
+  }
+}
+
+
+deleteCustomerAddress
+
+mutation DeleteCustomerAddress($id: ID!) {
+  deleteCustomerAddress(id: $id) {
+    success
+    message
+  }
+}
+
+
+login
+
+mutation Login($username: String!, $password: String!, $rememberMe: Boolean) {
+  login(username: $username, password: $password, rememberMe: $rememberMe) {
+    ... on NativeAuthenticationResult {
+      success
+      message
+      authenticationToken
+      user {
+        # Include the fields you need from the User object
+      }
+    }
+  }
+}
+
+
+logout
+
+mutation Logout {
+  logout {
+    success
+    message
+  }
+}
+
+
+refreshCustomerVerification
+
+mutation RefreshCustomerVerification($emailAddress: String!) {
+  refreshCustomerVerification(emailAddress: $emailAddress) {
+    ... on RefreshCustomerVerificationResult {
+      success
+      message
+    }
+  }
+}
+
+
+registerCustomerAccount
+
+mutation RegisterCustomerAccount($input: RegisterCustomerInput!) {
+  registerCustomerAccount(input: $input) {
+    ... on RegisterCustomerAccountResult {
+      success
+      message
+      authenticationToken
+      user {
+        # Include the fields you need from the User object
+      }
+    }
+  }
+}
+
+
+removeAllOrderLines
+
+mutation RemoveAllOrderLines {
+  removeAllOrderLines {
+    success
+    message
+    order {
+      # Include the fields you need from the Order object
+    }
+  }
+}
+
+
+removeCouponCode
+
+mutation RemoveCouponCode($couponCode: String!) {
+  removeCouponCode(couponCode: $couponCode) {
+    ... on Order {
+      # Include the fields you need from the Order object
+    }
+  }
+}
+
+
+removeOrderLine
+
+mutation RemoveOrderLine($orderLineId: ID!) {
+  removeOrderLine(orderLineId: $orderLineId) {
+    success
+    message
+    order {
+      # Include the fields you need from the Order object
+    }
+  }
+}
+
+
+requestPasswordReset
+
+mutation RequestPasswordReset($emailAddress: String!) {
+  requestPasswordReset(emailAddress: $emailAddress) {
+    ... on RequestPasswordResetResult {
+      success
+      message
+    }
+  }
+}
+
+
+requestUpdateCustomerEmailAddress
+
+mutation RequestUpdateCustomerEmailAddress($password: String!, $newEmailAddress: String!) {
+  requestUpdateCustomerEmailAddress(password: $password, newEmailAddress: $newEmailAddress) {
+    ... on RequestUpdateCustomerEmailAddressResult {
+      success
+      message
+    }
+  }
+}
+
+
+resetPassword
+
+mutation ResetPassword($token: String!, $password: String!) {
+  resetPassword(token: $token, password: $password) {
+    ... on ResetPasswordResult {
+      success
+      message
+    }
+  }
+}
+
+
+setCustomerForOrder
+
+mutation SetCustomerForOrder($input: CreateCustomerInput!) {
+  setCustomerForOrder(input: $input) {
+    ... on SetCustomerForOrderResult {
+      success
+      message
+    }
+  }
+}
+
+
+setOrderBillingAddress
+
+mutation SetOrderBillingAddress($input: CreateAddressInput!) {
+  setOrderBillingAddress(input: $input) {
+    ... on ActiveOrderResult {
+      success
+      message
+      order {
+        # Include the fields you need from the Order object
+      }
+    }
+  }
+}
+
+
+setOrderCustomFields
+
+mutation SetOrderCustomFields($input: UpdateOrderInput!) {
+  setOrderCustomFields(input: $input) {
+    ... on ActiveOrderResult {
+      success
+      message
+      order {
+        # Include the fields you need from the Order object
+      }
+    }
+  }
+}
+
+
+setOrderShippingAddress
+
+mutation SetOrderShippingAddress($input: CreateAddressInput!) {
+  setOrderShippingAddress(input: $input) {
+    ... on ActiveOrderResult {
+      success
+      message
+      order {
+        # Include the fields you need from the Order object
+      }
+    }
+  }
+}
+
+
+setOrderShippingMethod
+
+mutation SetOrderShippingMethod($shippingMethodId: [ID!]!) {
+  setOrderShippingMethod(shippingMethodId: $shippingMethodId) {
+    ... on SetOrderShippingMethodResult {
+      success
+      message
+    }
+  }
+}
+
+
+
+transitionOrderToState
+
+mutation TransitionOrderToState($state: String!) {
+  transitionOrderToState(state: $state) {
+    ... on TransitionOrderToStateResult {
+      success
+      message
+      order {
+        # Include the fields you need from the Order object
+      }
+    }
+  }
+}
+
+
+updateCustomer
+
+mutation UpdateCustomer($input: UpdateCustomerInput!) {
+  updateCustomer(input: $input) {
+    ... on Customer {
+      # Include the fields you need from the Customer object
+    }
+  }
+}
+
+
+
+updateCustomerAddress
+
+mutation UpdateCustomerAddress($input: UpdateAddressInput!) {
+  updateCustomerAddress(input: $input) {
+    ... on Address {
+      # Include the fields you need from the Address object
+    }
+  }
+}
+
+
+
+updateCustomerEmailAddress
+
+mutation UpdateCustomerEmailAddress($token: String!) {
+  updateCustomerEmailAddress(token: $token) {
+    ... on UpdateCustomerEmailAddressResult {
+      success
+      message
+    }
+  }
+}
+
+
+
+updateCustomerPassword
+
+mutation UpdateCustomerPassword($currentPassword: String!, $newPassword: String!) {
+  updateCustomerPassword(currentPassword: $currentPassword, newPassword: $newPassword) {
+    ... on UpdateCustomerPasswordResult {
+      success
+      message
+    }
+  }
+}
+
+
+verifyCustomerAccount
+
+mutation VerifyCustomerAccount($token: String!, $password: String) {
+  verifyCustomerAccount(token: $token, password: $password) {
+    ... on VerifyCustomerAccountResult {
+      success
+      message
+    }
+  }
+}

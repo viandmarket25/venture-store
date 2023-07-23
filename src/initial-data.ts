@@ -4,7 +4,7 @@ export const initialData: InitialData = {
   paymentMethods: [],
   defaultLanguage: LanguageCode.en,
   countries: [],
-  defaultZone: 'NIGERIA',
+  defaultZone: 'NGN',
   taxRates: [{name:'NGN',percentage:0}],
   shippingMethods: [],
   collections: [],
